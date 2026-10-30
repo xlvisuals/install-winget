@@ -17,15 +17,13 @@ Open PowerShell as Administrator, then:
 
 ```powershell
 cd C:\path\to\script
-.\Install-Winget.ps1
+powershell.exe -ExecutionPolicy Bypass -File .\Install-Winget.ps1
 ```
 
-If script execution is blocked, allow it for this session only:
+### Why is `powershell.exe -ExecutionPolicy Bypass` needed?
 
-```powershell
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-.\Install-Winget.ps1
-```
+Windows editions default to the `Restricted` execution policy, which blocks all `.ps1` files. `powershell.exe -ExecutionPolicy Bypass` allows execution for the `.ps1` file passed with the `-File` parameter.
+
 
 ### Parameters
 
